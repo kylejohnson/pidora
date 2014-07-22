@@ -1,43 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Pidora</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pidora</title>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel=stylesheet href=css/styles.css />
 <link rel="icon" type="image/png" href="imgs/favicon.ico">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="http://cdn.craig.is/js/mousetrap/mousetrap.min.js?88c23"></script>
 <script src="js/pidora.js"></script>
-</head>
-<body>
 
-<div id="controls">
-<a onclick="sendCommand('pause');">Pause</a>
-<a onclick="sendCommand('next');">Next</a>
-<a onclick="sendCommand('love');">Love</a>
-<a onclick="sendCommand('ban');">Ban</a>
-<a onclick="sendCommand('tired');">Tired</a>
-<a onclick="explainSong();">Explain</a>
-<a onclick="stationSetup();">Station</a>
-<a onclick="sendCommand('volumeup');">V+</a>
-<a onclick="sendCommand('volumedown');">V-</a>
-<!--<a onclick="newStationSetup();">Create</a>-->
+  </head>
+  <body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Menu</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Pidora</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="btn-group nav navbar-nav" id="controls">
+	<li><a class="btn btn-default" onclick="sendCommand('pause');">
+		<span class="glyphicon glyphicon-pause"></span> Pause
+	</a></li>
+	<li><a class="btn btn-default" onclick="sendCommand('next');">
+		<span class="glyphicon glyphicon-fast-forward"></span> Next
+	</a></li>
+	<li><a class="btn btn-default" onclick="sendCommand('love');">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Love
+	</a></li>
+	<li><a class="btn btn-default" onclick="sendCommand('ban');">
+		<span classs="glyphicon glyphicon-thumbs-down"></span> Ban
+	</a></li>
+	<li><a class="btn btn-default" onclick="sendCommand('tired');">Tired</a></li>
+	<li><a class="btn btn-default" onclick="explainSong();">
+		<span class="glyphicon glyphicon-info-sign"></span> Explain
+	</a></li>
+	<li><a class="btn btn-default" onclick="stationSetup();">Station</a></li>
+	<li><a class="btn btn-default" onclick="sendCommand('volumeup');">
+		<span class="glyphicon glyphicon-volume-up"></span> V+
+	</a></li>
+	<li><a class="btn btn-default" onclick="sendCommand('volumedown');">
+		<span class="glyphicon glyphicon-volume-down"></span> V-
+	</a></li>
+	<!--<li><a class="btn btn-default" onclick="newStationSetup();">Create</a>-->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div id="content" class="media">
+	<img class="media-object img-responsive albumart" src="imgs/pandora.png" onError="this.onerror=null;this.src='imgs/pandora.png';" alt="Pandora logo" />
+	<div class="media-body">
+		<h1 class="media-heading"></h1>
+		<img class="media-object img-responsive love" src="imgs/love.png" style="display:none" alt="Loved" />
+		<h2></h2>
+		<h2 class=album></h2>
+		<p class=details>EMPTY</p>
+	</div>
 </div>
 
-<div id="content" style="display:none">
-<img src=imgs/love.png class=love style="display:none" alt="Loved" />
-<img src=imgs/pandora.png onError="this.onerror=null;this.src='imgs/pandora.png';" class=albumart alt="Pandora logo" />
-<h1></h1>
-<h2></h2>
-<h2 class=album></h2>
-<p class=details>EMPTY</p>
-</div>
+
 
 <div id="stationList" style="display:none">
 </div>
 
 <div id="newStation" style="display:none">
 Create new station from:<br />
-<a onclick="newStation('song');">[S]ong</a> or <a onclick="newStation('artist');">[A]rtist</a>
+<a class="btn btn-default" onclick="newStation('song');">[S]ong</a> or <a onclick="newStation('artist');">[A]rtist</a>
 </div>
 
 <div id="msg" style="display:none">
