@@ -5,6 +5,7 @@ msg
 stationList
 lastNews
 *.pyc
+cpy.conf
 
 # Files to ignore because of development
 pidora.sublime-project
